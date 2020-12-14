@@ -69,8 +69,11 @@ namespace Bank_App.Controllers
                 
             };
 
-            model.accounts.Add(new BankAccount() { AccountNum = 111111111111, AccountName="Test", Type="Savings", Balance = 19789.01});
-            model.Transactions.Add(new Transactions() { AccountID = 111111111111, TransactionDateTime = DateTime.Now, TransactionID = 1111, TransactionType = "Withdraw", Amount = 370.67});
+            ///model.accounts.Add(new BankAccount() { AccountNum = 111111111111, AccountName="Test", Type="Savings", Balance = 19789.01});
+            // model.Transactions.Add(new Transactions() { AccountID = 111111111111, TransactionDateTime = DateTime.Now, TransactionID = 1111, TransactionType = "Withdraw", Amount = 370.67});
+            model.accounts = AccountManager.QueryAccounts(LoginService.CurrentUserID);
+            model.Transactions = AccountManager.QueryTransactions(LoginService.CurrentUserID);
+
 
             return View(model);
         }
@@ -101,7 +104,7 @@ namespace Bank_App.Controllers
                 return View(model);
             }
 
-
+            AccountManager.AddNewBankAccount(model);
 
 
             return RedirectToAction("AccountHome");

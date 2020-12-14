@@ -136,7 +136,7 @@ namespace Bank_App.DataLayer
             if(IsAuthenticated)
             {
                 StoredUser user = new StoredUser();
-                using (var connection = new NpgsqlConnection(buildConnection("authorizedUser", ">+T[qF^AYf;.n$%!6'eX~nxBu{M\"xQg2Kp5E5((aavgjS = 2y##KD$XZCm:v>qDew")))
+                using (var connection = new NpgsqlConnection(buildConnection("authorizedUser", "Rb&e@X@Em9wmZD52RY%*MLyw!cEf5h!e")))
                 {
                     connection.Open();
                     using (var cmd = new NpgsqlCommand())

@@ -34,7 +34,7 @@
                     <td>@account.AccountNum</td>
                     <td>@account.AccountName</td>
                     <td>@account.Type</td>
-                    <td>@account.Balance</td>
+                    <td>@String.Format("{0:C}",account.Balance)</td>
                 </tr>
             }
         </tbody>
@@ -68,7 +68,7 @@
                     <td>@transaction.TransactionID</td>
                     <td>@transaction.TransactionDateTime</td>
                     <td>@transaction.TransactionType</td>
-                    <td>@transaction.Amount</td>
+                    <td>@String.Format("{0:C}", transaction.Amount)</td>
                 </tr>
             }
         </tbody>
