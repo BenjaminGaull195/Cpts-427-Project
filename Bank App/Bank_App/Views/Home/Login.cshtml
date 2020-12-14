@@ -1,0 +1,57 @@
+﻿
+@model Bank_App.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<div class="container-fluid hero">
+    <h1>Demonstration Bank</h1>
+    <p>Welcome to this demonstration bank page</p>
+
+    <h1>Login Form</h1>
+    @if (Model.loginFailed)
+    {
+        <p  class="text-error">Invalid Login or Password</p>
+    }
+</div>
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        //@Html.HiddenFor(model => model.IsUserValid)
+        <div class="row login-form">
+            <div class="col">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.loginID, htmlAttributes: new { @class = "control-label required", @id = "userid-label" })
+                    @Html.EditorFor(model => model.loginID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.loginID, "", new { @class = "text-error", @id = "userid-error" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.passwordHash, htmlAttributes: new { @class = "control-label required", @id = "userpwd-label" })
+                    @Html.EditorFor(model => model.passwordHash, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.passwordHash, "", new { @class = "text-error", @id = "userpwd-error" })
+                </div>
+
+                @*@if (!Model.IsUserValid)
+                    {
+                        <p class="text-error">Sorry, Login and/or Password were not valid.</p>
+                    }*@
+
+                <input id="submit-button" type="submit" value="Submit" class="btn btn-primary">
+                <br /><br />
+                
+                <p>Don't have an account? @Html.ActionLink("Register Here", "Registration", "Home")</p>
+
+            </div>
+        </div>
+    }
+</div>

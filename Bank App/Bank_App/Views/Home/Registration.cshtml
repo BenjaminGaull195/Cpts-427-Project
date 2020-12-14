@@ -1,0 +1,76 @@
+﻿
+@model Bank_App.Models.RegistrationModel
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<div class="container-fluid hero">
+    <h1>Demonstration Bank</h1>
+    <p>Welcome to this demonstration bank page</p>
+
+    <h1>Registration Form</h1>
+</div>
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        //@Html.HiddenFor(model => model.IsUserValid)
+        <div class="row login-form">
+            <div class="col">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label", @id = "userid-label" })
+                    @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-error", @id = "userid-error" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label required", @id = "userpwd-label" })
+                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-error", @id = "userpwd-error" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label required", @id = "userpwd-label" })
+                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-error", @id = "userpwd-error" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.confirmpassword, htmlAttributes: new { @class = "control-label required", @id = "userpwd-label" })
+                    @Html.EditorFor(model => model.confirmpassword, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.confirmpassword, "", new { @class = "text-error", @id = "userpwd-error" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label required", @id = "userpwd-label" })
+                    @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-error", @id = "userpwd-error" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label required", @id = "userpwd-label" })
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-error", @id = "userpwd-error" })
+                </div>
+
+
+                @*@if (!Model.IsUserValid)
+        {
+            <p class="text-error">Sorry, Login and/or Password were not valid.</p>
+        }*@
+
+                <input id="submit-button" type="submit" value="Submit" class="btn btn-primary">
+                <br /><br />
+
+            </div>
+        </div>
+    }
+</div>

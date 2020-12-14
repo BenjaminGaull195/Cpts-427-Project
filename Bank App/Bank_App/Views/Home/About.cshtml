@@ -1,9 +1,9 @@
-﻿@page
-@model AboutModel
-@{
-    ViewData["Title"] = "About";
+﻿@{
+    ViewBag.Title = "About";
 }
-<h2>@ViewData["Title"]</h2>
+<h2>@ViewBag.Title.</h2>
+
+
 <h3>About This Webpage</h3>
 
 <p>This website is used to develope and demonstrate an understanding of cyber security in an environment where security of information is a necessity.</p>
@@ -15,7 +15,8 @@
     <li>Required HTTPS connection</li>
     <li>Database Users/Roles to restrict access to certain tables within database</li>
     <li>Parameterized SQL queries to help prevent SQL Injection attacks</li>
-    <li>A login service that provides the following features
+    <li>
+        A login service that provides the following features
         <ul>
             <li>User Account Creation</li>
             <li>User Login</li>
@@ -25,7 +26,7 @@
             <li>A 128 bit Salt appended to password</li>
         </ul>
     </li>
-        
+
 </ul>
 <p>The following are the security measures currently under development:</p>
 <ul>
@@ -33,3 +34,6 @@
     <li>Precautions to protect against Cross Site Request Forgery</li>
     <li>Two-Factor Authentication</li>
 </ul>
+
+
+

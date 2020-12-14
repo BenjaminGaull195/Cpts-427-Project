@@ -1,0 +1,50 @@
+﻿
+@model Bank_App.Models.AccountFormModel
+
+@{
+    ViewBag.Title = "AccountForm";
+}
+
+<div class="container-fluid hero">
+    <h1>Welcome</h1>
+    <p>Account Management</p>
+
+
+</div>
+
+
+
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        //@Html.HiddenFor(model => model.IsUserValid)
+        <div class="row login-form">
+            <div class="col">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label", @id = "userid-label" })
+                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-error", @id = "userid-error" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.type, htmlAttributes: new { @class = "control-label required" })
+                    @Html.DropDownListFor(model => model.type, Model.possibleTypes, "Please Select an Option", new { @class = "form-control" })
+                    @*@Html.EditorFor(model => model.type, new { htmlAttributes = new { @class = "form-control", } })*@
+                    @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
+
+                </div>
+
+
+
+                <input id="submit-button" type="submit" value="Submit" class="btn btn-primary">
+                <br /><br />
+
+
+            </div>
+        </div>
+    }
+</div>

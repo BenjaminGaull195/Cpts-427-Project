@@ -1,0 +1,11 @@
+CREATE TABLE UserAccounts (
+	accountID SERIAL,
+	username VARCHAR(255),
+	email VARCHAR(255) NOT NULL,
+	passwordHash VARCHAR NOT NULL,
+	LastName VARCHAR(255) NOT NULL,
+	FirstName VARCHAR(255) NOT NULL,
+	PRIMARY KEY (accountID)
+);
+
+ALTER SEQUENCE UserAccounts_accountID_seq RESTART 111111111;
