@@ -7,7 +7,7 @@ CREATE TABLE Transactions (
 	transactionType VARCHAR NOT NULL,
 	transactionAmount FLOAT NOT NULL,
 	PRIMARY KEY (accountID, transactionID),
-	FOREIGN KEY (accountID) REFERENCES BankAccounts(AccountNum)
+	FOREIGN KEY (accountID) REFERENCES BankAccounts(AccountNum) ON DELETE CASCADE
 );
 
 ALTER SEQUENCE transactions_transactionid_seq RESTART 1111;
